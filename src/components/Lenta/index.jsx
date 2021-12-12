@@ -23,10 +23,7 @@ const Lenta = () => {
 
     useEffect(() => {
         getImage();
-        let timer = setTimeout(() => getImage(), 60000);
-        return () => {
-            clearTimeout(timer);
-        }
+        setInterval(getImage, 60000);
     }, [])
 
     // const sendImage = () => {
@@ -35,6 +32,7 @@ const Lenta = () => {
     // }
 
     const getImage = () => {
+        console.log('TEST');
         const url = `https://backend-hahathone.herokuapp.com/getImages`;
         axios.get(url, {
             headers: {
